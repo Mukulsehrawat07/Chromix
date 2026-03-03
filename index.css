@@ -81,11 +81,14 @@ form input[type="color"] {
 }
 
 .color-scheme-container {
-    /* use flexbox so each box can expand both horizontally and vertically */
+    /* use flexbox so each box can expand horizontally and vertically */
     display: flex;
     gap: 0.5rem;
     flex: 1;               /* grow to fill parent */
     min-height: 40vh;      /* reasonable minimum when empty */
+    align-items: stretch;  /* ensure children stretch vertically */
+    /* if parent is flex, allow children to shrink properly */
+    min-height: 0;
 }
 
 .color-scheme-container .color-box {
@@ -96,9 +99,10 @@ form input[type="color"] {
     align-items: flex-end;
     justify-content: center;
     /* fill available space in the flex container */
-    flex: 1;
+    flex: 1 1 0;           /* allow growing and shrinking, base 0 to share equally */
     height: 100%;
     min-height: 6rem;      /* keep interactive size on very thin containers */
+    min-width: 0;          /* prevent overflow from long hex text */
 }
 
 .color-scheme-container .color-box:hover {
