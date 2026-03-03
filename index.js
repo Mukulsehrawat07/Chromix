@@ -85,6 +85,10 @@ function fetchColorScheme(url) {
 
 // render blocks and use event delegation for copy
 function generateColorSchemeHtml(colors) {
+    // remove instructions if present so boxes can fill container
+    const instr = container.querySelector('.instructions')
+    if (instr) instr.remove()
+
     if (!colors || colors.length === 0) {
         container.innerHTML = "<p>No colors returned.</p>"
         return
