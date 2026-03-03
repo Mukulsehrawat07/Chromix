@@ -81,15 +81,11 @@ form input[type="color"] {
 }
 
 .color-scheme-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); /* bigger minimums */
-    grid-auto-rows: 1fr;               /* make rows fill available height */
-    grid-auto-flow: dense;
-    gap: 0.5rem;                       /* spacing between color blocks */
-    /* allow the container to grow inside the flex parent */
-    flex: 1;
-    /* keep a reasonable minimum when empty */
-    min-height: 40vh;
+    /* use flexbox so each box can expand both horizontally and vertically */
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;               /* grow to fill parent */
+    min-height: 40vh;      /* reasonable minimum when empty */
 }
 
 .color-scheme-container .color-box {
@@ -99,9 +95,10 @@ form input[type="color"] {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    aspect-ratio: 1 / 1; /* maintain square blocks */
-    /* larger baseline so blocks are easier to tap/use */
-    min-height: 6rem;
+    /* fill available space in the flex container */
+    flex: 1;
+    height: 100%;
+    min-height: 6rem;      /* keep interactive size on very thin containers */
 }
 
 .color-scheme-container .color-box:hover {
