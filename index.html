@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link  href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:wght@100..900&family=TASA+Explorer:wght@400..800&display=swap" rel="stylesheet"  />
+        <link rel="stylesheet" href="index.css"> 
+        <title>Chromix  |  Color Scheme Generator</title>
+    </head>
+    <body>
+        <header>Chromix  |  Color Scheme Generator</header>
+        <main id="main">
+            <form id="form">
+                <div class="inputs-container">
+                    <input type="color" id="seed-color" name="seed-color" value="#F55A5A">
+                    <select name="color-scheme-mode">
+                        <option value="monochrome">Monochrome</option>
+                        <option value="monochrome-dark">Monochrome Dark</option>
+                        <option value="monochrome-light">Monochrome Light</option>
+                        <option value="analogic">Analogic</option>
+                        <option value="complement">Complement</option>
+                        <option value="analogic-complement">Analogic Complement</option>
+                        <option value="triad">Triad</option>
+                    </select>
+                    <button>Get Color Scheme</button>
+                </div>
+                
+                <div class="color-scheme-container" id="color-scheme-container">
+                    <div class="instructions">
+                        <h2>How to Use</h2>
+                         <ol>
+                            <li>Pick a seed color using the color picker</li>
+                            <li>Choose a color scheme mode from the dropdown</li>
+                            <li>Click "Get Color Scheme" to generate your palette</li>
+                         </ol>
+                         <p>
+                            Your color scheme will appear here with hex values you can use in
+                            your projects!
+                         </p>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <footer>© 2026 | Chromix by Mukul Sehrawat</footer>
+        <script src="index.js"></script>
+    </body>
+</html>
