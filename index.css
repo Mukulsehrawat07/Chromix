@@ -27,14 +27,15 @@ footer {
 main {
     background-color: #fff;
     width: 100%;
-    /* allow the layout to stretch on large displays while still keeping
-       a comfortable margin on either side */
-    max-width: 90vw;
+    /* let the page expand more like the example site, but keep a sensible
+       max so it doesn't stretch forever */
+    max-width: 1000px;
+    padding: 2rem 1rem;          /* add breathing room inside the card */
     border: 0.5px solid #e5e5e5;
     border-radius: 4px;
     overflow: hidden;
     margin: 1rem auto; /* center on wider screens */
-    min-height: 60vh; /* give the container some vertical presence */
+    min-height: calc(100vh - 8rem); /* fill most of the viewport height */
 }
 
 form button,
@@ -72,11 +73,12 @@ form input[type="color"] {
 
 .color-scheme-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); /* bigger minimums */
     grid-auto-rows: 1fr;               /* make rows fill available height */
     grid-auto-flow: dense;
+    gap: 0.5rem;                       /* spacing between color blocks */
     /* use viewport height so the boxes grow with the screen size */
-    min-height: 30vh;
+    min-height: 40vh;
 }
 
 .color-scheme-container .color-box {
@@ -87,8 +89,8 @@ form input[type="color"] {
     align-items: flex-end;
     justify-content: center;
     aspect-ratio: 1 / 1; /* maintain square blocks */
-    /* allow the grid row to determine height; min-height kept lower just in case */
-    min-height: 4rem;
+    /* larger baseline so blocks are easier to tap/use */
+    min-height: 6rem;
 }
 
 .color-scheme-container .color-box:hover {
