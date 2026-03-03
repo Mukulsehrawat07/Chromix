@@ -73,14 +73,95 @@ form input[type="color"] {
     min-height: 20rem;
 }
 
+.color-scheme-container .color-box {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    aspect-ratio: 1 / 1; /* maintain square blocks */
+    min-height: 4rem;
+}
+
+.color-scheme-container .color-box:hover {
+    transform: scale(1.05);
+}
+
+.color-scheme-container .color-box:active {
+    transform: scale(0.95);
+}
+
+.color-scheme-container .color-box:focus {
+    outline: 2px solid #00000060;
+    outline-offset: 2px;
+}
+
 .color-scheme-container span {
     font-size: 0.75rem;
     position: absolute;
     bottom: 0;
     text-align: center;
-    background-color: #ffffff;
-    padding: 0.5em;
+    background-color: rgba(255,255,255,0.85);
+    padding: 0.25em 0.5em;
     width: 100%;
+}
+
+/* loader spinner */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid #ddd;
+    border-top-color: #333;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    animation: spin 0.8s linear infinite;
+    z-index: 1;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* message toast */
+.message {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 0.5em 1em;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.message.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* accessible-only utility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .instructions {
