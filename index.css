@@ -41,6 +41,11 @@ main {
     min-height: calc(100vh - 8rem); /* fill most of the viewport height */
 }
 
+/* when inputs are hidden, remove extra padding so palette truly fills */
+main .inputs-container.hidden + .color-scheme-container {
+    padding-top: 0;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -78,6 +83,10 @@ form input[type="color"] {
     grid-template-columns: auto 1fr auto;
     background-color: transparent;
     padding: 1em 0.5em;
+}
+
+.inputs-container.hidden {
+    display: none !important;
 }
 
 .color-scheme-container {

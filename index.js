@@ -85,6 +85,10 @@ function fetchColorScheme(url) {
 
 // render blocks and use event delegation for copy
 function generateColorSchemeHtml(colors) {
+    // hide inputs area so palette can occupy full form height
+    const inputs = document.querySelector('.inputs-container')
+    if (inputs) inputs.classList.add('hidden')
+
     // remove instructions if present so boxes can fill container
     const instr = container.querySelector('.instructions')
     if (instr) instr.remove()
