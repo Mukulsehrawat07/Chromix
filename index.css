@@ -35,7 +35,16 @@ main {
     border-radius: 4px;
     overflow: hidden;
     margin: 1rem auto; /* center on wider screens */
+    /* use flex so palette area can grow and consume leftover space */
+    display: flex;
+    flex-direction: column;
     min-height: calc(100vh - 8rem); /* fill most of the viewport height */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* allow form to expand within main */
 }
 
 form button,
@@ -77,7 +86,9 @@ form input[type="color"] {
     grid-auto-rows: 1fr;               /* make rows fill available height */
     grid-auto-flow: dense;
     gap: 0.5rem;                       /* spacing between color blocks */
-    /* use viewport height so the boxes grow with the screen size */
+    /* allow the container to grow inside the flex parent */
+    flex: 1;
+    /* keep a reasonable minimum when empty */
     min-height: 40vh;
 }
 
